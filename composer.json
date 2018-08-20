@@ -12,7 +12,12 @@
     "require": {
         "php": ">=7.1",
         "ext-mbstring": "*",
-        "ext-openssl": "*"
+        "ext-openssl": "*",
+        "doctrine/dbal": "^2.8",
+        "doctrine/orm": "^2.6",
+        "nesbot/carbon": "^1.33",
+        "guzzlehttp/guzzle": "^6.3",
+        "monolog/monolog": "^1.23"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -21,5 +26,8 @@
             "RosaCore\\": "src/",
             "RosaTest\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
     }
 }
