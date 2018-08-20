@@ -1,0 +1,25 @@
+{
+    "name": "mlawson/rosa-core",
+    "description": "How hard can a framework be?",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Lawson",
+            "email": "mlawson@neuone.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-mbstring": "*",
+        "ext-openssl": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "RosaCore\\": "src/",
+            "RosaTest\\": "tests/"
+        }
+    }
+}
