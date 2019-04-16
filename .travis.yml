@@ -1,18 +1,15 @@
 os: linux
 dist: trusty
 
-
 language: php
 
 php:
   - '7.2'
 
-  services: mysql
+before_install: skip
 
-  before_install: skip
+install:
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
-  install:
-    - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-
-  script:
-    - phpunit
+script:
+  - phpunit
