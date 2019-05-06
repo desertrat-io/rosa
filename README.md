@@ -1,13 +1,12 @@
+[![Build Status](https://travis-ci.org/djzara/rosa.svg?branch=master)](https://travis-ci.org/djzara/rosa)
+
+
 # Rosa - The Cloud Framework for PHP
 
 Experiment in creating a framework. Rosa provides a system by which
-
 creating applications that leverage cloud services is simple, providing
-
 as much as possible out of the box, with the ability to extend to your
-
 own cloud services in whichever way you need. Or, use Rosa as a basic
-
 MVC framework on its own, just keep in mind the cloud.
 
 
@@ -54,6 +53,10 @@ Duh?
 # What about the front end?
 
 Don't worry, that's coming too
+
+# Aren't you tired of MVC?
+
+Who said this was only MVC? You can use it like that if you choose, but once my plans are in place...
 
 ### Other stuff
 
