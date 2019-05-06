@@ -1,5 +1,5 @@
 {
-  "name": "djzara/rosa-core",
+  "name": "djzara/rosa",
   "description": "How hard can a framework be?",
   "keywords": [
     "framework",
@@ -22,13 +22,14 @@
   "authors": [
     {
       "name": "Mike Lawson",
-      "email": "mlawson@neuone.com"
+      "email": "mlawson1986@gmail.com"
     }
   ],
   "require": {
     "php": ">=7.1",
     "ext-mbstring": "*",
     "ext-openssl": "*",
+    "ext-json": "*",
     "nesbot/carbon": "^1.33",
     "guzzlehttp/guzzle": "^6.3",
     "monolog/monolog": "^1.23"
