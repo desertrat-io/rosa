@@ -21,7 +21,7 @@ class AbstractHttpRequestTest extends RosaTestCase
      */
     protected $httpRequestRef;
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->httpRequestRef = new ReflectionClass(AbstractHttpRequest::class);
