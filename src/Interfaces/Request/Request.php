@@ -3,7 +3,7 @@
 
 namespace Rosa\Interfaces\Request;
 
-use Rosa\Collections\Data\RosaStringGroup;
+use Rosa\Collections\Data\StringGroup;
 use Rosa\Collections\Http\RequestPayload;
 use Rosa\Interfaces\Filter\Filter;
 use Rosa\Collections\Http\OrderedFilterGroup;
@@ -98,9 +98,9 @@ interface Request
      * In the example of HTTP, this will be headers, cookies, etc.
      * It returns a string group as this data is intended to be string like.
      * Binary data is not part of this, although this data may refer to binary data
-     * @return RosaStringGroup
+     * @return StringGroup
      */
-    public function meta() : RosaStringGroup;
+    public function meta() : StringGroup;
 
 
 

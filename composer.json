@@ -1,50 +1,50 @@
 {
-  "name": "djzara/rosa",
-  "description": "How hard can a framework be?",
-  "keywords": [
-    "framework",
-    "rosa",
-    "mvc",
-    "cloud",
-    "phpframework",
-    "php",
-    "simple",
-    "component",
-    "modular",
-    "extensible",
-    "refactor the internet",
-    "app",
-    "messaging",
-    "untraditional"
-  ],
-  "type": "project",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Mike Lawson",
-      "email": "mlawson1986@gmail.com"
+    "name": "djzara/rosa",
+    "description": "How hard can a framework be?",
+    "keywords": [
+        "framework",
+        "rosa",
+        "mvc",
+        "cloud",
+        "phpframework",
+        "php",
+        "simple",
+        "component",
+        "modular",
+        "extensible",
+        "refactor the internet",
+        "app",
+        "messaging",
+        "untraditional"
+    ],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Lawson",
+            "email": "mlawson1986@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-json": "*",
+        "nesbot/carbon": "^2.0.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "monolog/monolog": "^1.23"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Rosa\\": "src/",
+            "RosaTest\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3",
+        "squizlabs/php_codesniffer": "^3.4",
+        "roave/security-advisories": "dev-master"
     }
-  ],
-  "require": {
-    "php": ">=7.1",
-    "ext-mbstring": "*",
-    "ext-openssl": "*",
-    "ext-json": "*",
-    "nesbot/carbon": "^1.33",
-    "guzzlehttp/guzzle": "^6.3",
-    "monolog/monolog": "^1.23"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "autoload": {
-    "psr-4": {
-      "Rosa\\": "src/",
-      "RosaTest\\": "tests/"
-    }
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^7.3",
-    "squizlabs/php_codesniffer": "^3.4",
-    "roave/security-advisories": "dev-master"
-  }
 }

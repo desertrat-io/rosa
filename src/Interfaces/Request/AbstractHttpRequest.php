@@ -3,7 +3,7 @@
 
 namespace Rosa\Interfaces\Request;
 
-use Rosa\Collections\Data\RosaStringGroup;
+use Rosa\Collections\Data\StringGroup;
 use Rosa\Interfaces\Request\Request;
 use Rosa\Collections\Data\SimpleCollection;
 use Rosa\Collections\Http\OrderedFilterGroup;
@@ -80,7 +80,7 @@ abstract class AbstractHttpRequest implements Request
         // TODO: Implement insertBeforeFilterAt() method.
     }
 
-    public function meta(): RosaStringGroup
+    public function meta(): StringGroup
     {
         // TODO: Implement meta() method.
     }

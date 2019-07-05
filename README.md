@@ -66,3 +66,7 @@ a bit. Tell me my idea is stupid, and I'll try to prove to you why it's not. Tha
 
 
 [Mike Lawson](mailto:mlawson1986@gmail.com)
+
+
+NOTE: During initial development, many classes will contain stubs as work to implement actual
+requirements is done
