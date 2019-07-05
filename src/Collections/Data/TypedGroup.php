@@ -3,14 +3,31 @@
 
 namespace Rosa\Collections\Data;
 
-use Rosa\Collections\Structures\OrderedGroup;
-
 /**
- * Class BaseOrderedGroup
+ * Class TypedGroup
  * @package Rosa\Collections\Data
  */
-class BaseOrderedGroup extends Group implements OrderedGroup
+abstract class TypedGroup extends Group
 {
+    /**
+     * @var null
+     */
+    protected $typeName;
+
+    abstract protected function getParameterizedType();
+
+    public function getTypeName() : string
+    {
+        return static::$typeName;
+    }
+
+    // TODO: make sure this checks the container first, as the type could be an interface
+    public function getNewGroup()
+    {
+        $newTypeClass = static::getParameterizedType();
+        return new $newTypeClass;
+    }
+
     public function current()
     {
         // TODO: Implement current() method.
@@ -66,19 +83,5 @@ class BaseOrderedGroup extends Group implements OrderedGroup
         // TODO: Implement unserialize() method.
     }
 
-    public function orderByKey(string $key): void
-    {
-        // TODO: Implement orderByKey() method.
-    }
-
-    public function orderChanged(): bool
-    {
-        // TODO: Implement orderChanged() method.
-    }
-
-    public function orderCursorLocation(): string
-    {
-        // TODO: Implement orderCursorLocation() method.
-    }
 
 }

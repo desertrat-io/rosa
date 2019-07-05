@@ -3,7 +3,7 @@
 
 namespace Rosa\Collections\Http;
 
-use Rosa\Collections\Data\RosaTypedGroup;
+use Rosa\Collections\Data\TypedGroup;
 use Rosa\Collections\Structures\OrderedGroup;
 use Rosa\Interfaces\Filter\Filter;
 
@@ -11,7 +11,7 @@ use Rosa\Interfaces\Filter\Filter;
  * Class OrderedFilterGroup
  * @package Rosa\Collections\Http
  */
-class OrderedFilterGroup extends RosaTypedGroup implements OrderedGroup
+class OrderedFilterGroup extends TypedGroup implements OrderedGroup
 {
 
     /**

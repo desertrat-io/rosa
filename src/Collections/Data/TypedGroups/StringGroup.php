@@ -4,10 +4,10 @@
 namespace Rosa\Collections\Data;
 
 /**
- * Class RosaStringGroup
+ * Class StringGroup
  * @package Rosa\Collections\Data
  */
-class RosaStringGroup
+class StringGroup extends TypedGroup
 {
 
 }
