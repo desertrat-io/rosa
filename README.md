@@ -31,11 +31,11 @@ the North End's worth of spaghetti in code in near consistent fashion has evolve
 
 (PS: If you don't know what the North End is, go to Boston sometime. Eat your heart out NYC!)
 
-We have the ability to type check parameters and return times, or we can choose not to. I think that's a very powerful
+We have the ability to type check parameters and return types, or we can choose not to. I think that's a very powerful
 feature to have in today's world where type safety is so important. The interpreter is lightning fast compared to what it
 was. The community is always growing thanks to PHPs low barrier to entry. However, there are enough features to keep
 you learning for years and years, making the most out of this language. PHP today is a ghost of what it was a decade ago.
-It's nothing alike.
+It's nothing alike. Pre-runtime detection of errors, maybe some parameterized types soon? ehhhhh?
 
 # So what cloud services do you support?
 
