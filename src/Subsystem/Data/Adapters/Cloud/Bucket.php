@@ -4,7 +4,7 @@
 namespace Rosa\Subsystem\Data\Adapters\Cloud;
 
 use Rosa\Collections\Data\SimpleCollection;
-use Rosa\Subsystem\Data\Adapters\Controllers\StorableLocator;
+use Rosa\Subsystem\Data\Adapters\Pipeline\StorableLocator;
 use Rosa\Subsystem\Data\Manage\Acl;
 
 /**

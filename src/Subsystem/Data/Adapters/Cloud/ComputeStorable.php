@@ -5,7 +5,7 @@ namespace Rosa\Subsystem\Data\Adapters\Cloud;
 
 use Rosa\Collections\Data\StringGroup;
 use Rosa\Subsystem\Compute\ComputeInstance;
-use Rosa\Subsystem\Data\Adapters\Controllers\Storable;
+use Rosa\Subsystem\Data\Adapters\Pipeline\Storable;
 use Rosa\Subsystem\Compute\InstanceMetaData;
 use Rosa\Subsystem\Data\Bus\DataSymbol;
 
