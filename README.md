@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/djzara/rosa.svg?branch=master)](https://travis-ci.org/djzara/rosa)
 
+How is our testing doing? [![Coverage Status](https://coveralls.io/repos/github/djzara/rosa/badge.svg?branch=master)](https://coveralls.io/github/djzara/rosa?branch=master)
+
 
 # Rosa - The Cloud Framework for PHP
 

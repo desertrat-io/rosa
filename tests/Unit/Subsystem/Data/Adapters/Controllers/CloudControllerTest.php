@@ -11,6 +11,7 @@ use ReflectionClass;
 /**
  * Class CloudControllerTest
  * @package RosaTest\Unit\Subsystem\Data\Adapters\Controllers
+ * @covers \Rosa\Subsystem\Data\Adapters\Controllers\CloudController
  */
 class CloudControllerTest extends RosaTestCase
 {

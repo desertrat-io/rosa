@@ -10,6 +10,7 @@ use Rosa\Interfaces\Kernel\Payload;
 /**
  * Class RequestPayload
  * @package Rosa\Collections\Http
+ * @codeCoverageIgnore
  */
 class RequestPayload extends Group implements Payload
 {

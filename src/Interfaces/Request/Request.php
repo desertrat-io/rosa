@@ -11,6 +11,7 @@ use Rosa\Collections\Http\OrderedFilterGroup;
 /**
  * Interface Request
  * @package Rosa\Interfaces\Request
+ * @codeCoverageIgnore
  */
 interface Request
 {

@@ -13,6 +13,7 @@ use Rosa\Interfaces\Filter\Filter;
 /**
  * Class OrderedFilterGroup
  * @package Rosa\Collections\Http
+ * @codeCoverageIgnore
  */
 class OrderedFilterGroup extends TypedGroup implements OrderedGroup
 {

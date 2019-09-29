@@ -8,6 +8,7 @@ use Rosa\Interfaces\Exception\RosaException;
 /**
  * Class StringGroup
  * @package Rosa\Collections\Data
+ * @codeCoverageIgnore
  */
 class StringGroup extends TypedGroup
 {

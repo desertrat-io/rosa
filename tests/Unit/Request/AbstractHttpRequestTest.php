@@ -12,6 +12,7 @@ use RosaTest\Unit\RosaTestCase;
 /**
  * Class AbstractHttpRequestTest
  * @package RosaTest\Unit\Request
+ * @covers \Rosa\Interfaces\Request\AbstractCloudRequest
  */
 class AbstractHttpRequestTest extends RosaTestCase
 {

@@ -11,6 +11,7 @@ use Rosa\Interfaces\Filter\Filter;
 /**
  * Class AbstractCloudRequest
  * @package Rosa\Interfaces\Request
+ * @codeCoverageIgnore
  */
 abstract class AbstractCloudRequest implements Request
 {

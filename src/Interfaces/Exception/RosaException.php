@@ -5,10 +5,10 @@ namespace Rosa\Interfaces\Exception;
 
 use Exception;
 
-
 /**
  * Class RosaException
  * @package Rosa\Interfaces\Exception
+ * @codeCoverageIgnore
  */
 abstract class RosaException extends Exception
 {

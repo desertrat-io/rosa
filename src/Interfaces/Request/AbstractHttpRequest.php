@@ -13,6 +13,7 @@ use Rosa\Interfaces\Filter\Filter;
 /**
  * Class AbstractHttpRequest
  * @package Rosa\Interfaces\Request
+ * @codeCoverageIgnore
  */
 abstract class AbstractHttpRequest implements Request
 {
