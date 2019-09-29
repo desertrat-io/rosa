@@ -15,7 +15,12 @@
         "refactor the internet",
         "app",
         "messaging",
-        "untraditional"
+        "untraditional",
+        "aws",
+        "rackspace",
+        "compute",
+        "block",
+        "storage"
     ],
     "type": "project",
     "license": "MIT",
