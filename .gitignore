@@ -564,5 +564,5 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
-
+/build/
 # End of https://www.gitignore.io/api/node,macos,linux,windows,composer,visualstudio,phpstorm+all,visualstudiocode
