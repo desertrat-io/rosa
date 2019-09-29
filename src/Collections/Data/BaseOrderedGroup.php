@@ -10,6 +10,7 @@ use Rosa\Interfaces\Exception\RosaException;
 /**
  * Class BaseOrderedGroup
  * @package Rosa\Collections\Data
+ * @codeCoverageIgnore
  */
 class BaseOrderedGroup extends Group implements OrderedGroup
 {

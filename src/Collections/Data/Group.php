@@ -11,7 +11,6 @@ use Serializable;
 use Countable;
 use stdClass;
 
-
 /**
  * The Group class is the highest level class in the tree of objects that represents collections of objects
  * While a group can contain scalar values, it is recommended for use with objects. Some implementations of group
@@ -30,6 +29,7 @@ use stdClass;
  *
  * Class Group
  * @package Rosa\Collections\Data
+ * @codeCoverageIgnore
  */
 abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
 {

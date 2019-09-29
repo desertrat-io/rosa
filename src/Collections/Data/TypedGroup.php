@@ -6,6 +6,7 @@ namespace Rosa\Collections\Data;
 /**
  * Class TypedGroup
  * @package Rosa\Collections\Data
+ * @codeCoverageIgnore
  */
 abstract class TypedGroup extends Group
 {

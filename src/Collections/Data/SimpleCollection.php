@@ -10,6 +10,7 @@ use Rosa\Interfaces\Exception\RosaException;
  * general purpose, it's basically an enhanced PHP Array.
  * Class SimpleCollection
  * @package Rosa\Collections\Data
+ * @codeCoverageIgnore
  */
 class SimpleCollection extends Group
 {

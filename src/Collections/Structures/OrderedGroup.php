@@ -4,9 +4,11 @@
 namespace Rosa\Collections\Structures;
 
 use Closure;
+
 /**
  * Class OrderedGroup
  * @package Rosa\Collections\Structures
+ * @codeCoverageIgnore
  */
 interface OrderedGroup
 {

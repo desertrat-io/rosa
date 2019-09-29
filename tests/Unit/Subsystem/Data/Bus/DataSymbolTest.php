@@ -12,6 +12,7 @@ use ReflectionProperty;
 /**
  * Class DataSymbolTest
  * @package RosaTest\Unit\Subsystem\Data\Bus
+ * @covers \Rosa\Subsystem\Data\Bus\DataSymbol
  */
 class DataSymbolTest extends RosaTestCase
 {

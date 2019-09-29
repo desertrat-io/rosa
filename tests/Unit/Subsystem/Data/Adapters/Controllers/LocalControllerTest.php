@@ -11,6 +11,7 @@ use ReflectionClass;
 /**
  * Class LocalControllerTest
  * @package RosaTest\Unit\Subsystem\Data\Adapters\Controllers
+ * @covers \Rosa\Subsystem\Data\Adapters\Controllers\LocalController
  */
 class LocalControllerTest extends RosaTestCase
 {
