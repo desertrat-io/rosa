@@ -4,9 +4,9 @@
 namespace Rosa\Subsystem\Data\Adapters\Cloud;
 
 use Rosa\Collections\Data\Jsonable;
-use Rosa\Subsystem\Data\Adapters\Controllers\Storable;
 use Rosa\Subsystem\Data\Bus\DataSymbol;
 use Rosa\Subsystem\Data\Manage\Acl;
+use Rosa\Subsystem\Data\Adapters\Pipeline\Storable;
 
 /**
  * Class BlockStorable

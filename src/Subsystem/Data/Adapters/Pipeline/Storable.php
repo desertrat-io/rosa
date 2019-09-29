@@ -1,7 +1,9 @@
 <?php
 
 
-namespace Rosa\Subsystem\Data\Adapters\Controllers;
+namespace Rosa\Subsystem\Data\Adapters\Pipeline;
+
+use Rosa\Subsystem\Data\Adapters\Pipeline\StorageLock;
 
 /**
  * Class Storable

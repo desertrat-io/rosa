@@ -6,6 +6,8 @@ namespace Rosa\Subsystem\Data\Adapters\Controllers;
 use Rosa\Collections\Data\Group;
 use Rosa\Collections\Data\TypedGroup;
 use Rosa\Subsystem\Data\Manage\Acl;
+use Rosa\Subsystem\Data\Adapters\Pipeline\Storable;
+use Rosa\Subsystem\Data\Adapters\Pipeline\StorableLocator;
 
 /**
  * Facilitates the movement of storage objects for a given storage system

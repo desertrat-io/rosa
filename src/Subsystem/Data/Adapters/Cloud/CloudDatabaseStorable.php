@@ -3,7 +3,7 @@
 
 namespace Rosa\Subsystem\Data\Adapters\Cloud;
 
-use Rosa\Subsystem\Data\Adapters\Controllers\Storable;
+use Rosa\Subsystem\Data\Adapters\Pipeline\Storable;
 
 /**
  * Class CloudDatabaseStorable
