@@ -10,6 +10,7 @@ use Rosa\Interfaces\Exception\RosaException;
 use Serializable;
 use Countable;
 use stdClass;
+use RuntimeException;
 
 /**
  * The Group class is the highest level class in the tree of objects that represents collections of objects
@@ -31,7 +32,7 @@ use stdClass;
  * @package Rosa\Collections\Data
  * @codeCoverageIgnore
  */
-abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
+abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, Jsonable
 {
 
     /**
@@ -60,6 +61,11 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
     protected $exceptionHandlerArguments = [];
 
     /**
+     * @var GroupNode
+     */
+    protected $groupNode;
+
+    /**
      * @var int
      */
     protected $cap = 0;
@@ -75,26 +81,25 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      */
     public function count(): ?int
     {
-        if (static::$collection instanceof Countable) {
-            return count(static::$collection);
+        if ($this->collection instanceof Countable || is_array($this->collection)) {
+            return count($this->collection);
         }
         return null;
     }
 
     /**
      * Converts the group to a PHP object with no frills
-     * This can be overridden to provide a custom object type
+     * This is meant to be overridden to provide a custom object type
      * @return stdClass
      */
     public function toGenericObject(): stdClass
     {
-        $generic = new stdClass();
-        if (is_array(static::$collection)) {
-            foreach (static::$collection as $key => $val) {
-                $generic->{$key} = $val;
-            }
-        }
-        return $generic;
+        return (object) $this->collection;
+    }
+
+    public function destroy(): void
+    {
+        $this->collection = [];
     }
 
     /**
@@ -106,11 +111,10 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      */
     public function json(): ?string
     {
-        if (is_array(static::$collection) ||
-            (static::$collection instanceof ArrayAccess &&
-                static::$collection instanceof Countable)) {
-
-            return json_encode(static::$collection);
+        if (is_array($this->collection) ||
+            ($this->collection instanceof ArrayAccess &&
+                $this->collection instanceof Countable)) {
+            return json_encode($this->collection);
         }
 
         return null;
@@ -121,7 +125,8 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      * @param RosaException $exceptionHandler
      * @param mixed ...$arguments
      */
-    public function setDefaultExceptionHandler(RosaException $exceptionHandler, ...$arguments) {
+    public function setDefaultExceptionHandler(RosaException $exceptionHandler, ...$arguments): void
+    {
         $this->exceptionHandler = $exceptionHandler;
         $this->exceptionHandlerArguments = $arguments;
     }
@@ -134,7 +139,13 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      * @param int $index
      * @return mixed
      */
-    abstract public function getByIndex(int $index);
+    public function getByIndex(int $index)
+    {
+        if (isset($this->collection[$index])) {
+            return $this->collection[$index];
+        }
+        return null;
+    }
 
     /**
      * Retrieve an item from the group by associated string key, similar to a native
@@ -143,19 +154,74 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      * @param string $key
      * @return mixed
      */
-    abstract public function getByKey(string $key);
+    public function getByKey(string $key)
+    {
+        if (isset($this->collection[$key])) {
+            return $this->collection[$key];
+        }
+        return null;
+    }
 
     /**
      * Appends an object to the end of the Group with no order guarantee
      * @param $object
+     * @param  int|string  $key
+     * @return void
+     * @throws RosaException
+     * @throws RuntimeException
      */
-    abstract public function append($object);
+    public function append($object, $key = null): void
+    {
+        $this->checkKey($key);
+        if (is_array($this->collection)) {
+            if ($key !== null) {
+                $this->collection[$key] = $object;
+            } else {
+                $this->collection[] = $object;
+            }
+        }
+    }
 
     /**
      * Prepends an object to the beginning of the Group with no order guarantee
      * @param $object
+     * @param $key
+     * @throws RuntimeException
+     * @throws RosaException
      */
-    abstract public function prepend($object);
+    public function prepend($object, $key = null): void
+    {
+        $this->checkKey($key);
+        if (is_array($this->collection)) {
+            // PHP scoping let's use define variables inside conditionals, but I find that hard to read
+            // this guy is here so that we aren't trying to access the collection during a padding operation
+            $tmpCollection = [];
+            if ($key !== null) {
+                // make a spot
+                $tmpCollection = array_merge([$key => $object], $this->collection);
+            } else {
+                $tmpCollection = array_pad($this->collection, -(count(($this->collection))+1), $object);
+            }
+
+            $this->collection = $tmpCollection; // keep the original collection from being touched until finished
+        }
+    }
+
+    /**
+     * Just a simple way to make sure any group key is valid, mainly for internal use
+     * @param $key
+     * @throws RosaException
+     * @throws RuntimeException
+     */
+    protected function checkKey($key): void
+    {
+        if ($key !== null && (!is_string($key) && !is_numeric($key))) {
+            if ($this->exceptionHandler !== null) {
+                throw new $this->exceptionHandler($this->exceptionHandlerArguments);
+            }
+            throw new RuntimeException('Invalid Key');
+        }
+    }
 
     /**
      * Insert an item in to an array in between the first and last elements
@@ -166,14 +232,14 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      * @param int $index
      * @param int $shiftTo
      */
-    abstract public function insertByIndex(int $index, int $shiftTo = 0);
+    abstract public function insertByIndex(int $index, int $shiftTo = 0): void;
 
     /**
      * Works the same as @see insertByIndex however it does so by string key
      * @param string $key
      * @param int $shiftTo
      */
-    abstract public function insertByKey(string $key, int $shiftTo = 0);
+    abstract public function insertByKey(string $key, int $shiftTo = 0): void;
 
     /**
      * Performs a map action on the Group using the specific callback
@@ -203,7 +269,7 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      * @param int $num
      * @throws RosaException
      */
-    abstract public function setCap(int $num);
+    abstract public function setCap(int $num): void;
 
     /**
      * Set a limit on how many objects can be stored in a group
@@ -213,5 +279,12 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable
      */
     abstract public function setSoftCap(int $num): bool;
 
-
+    /**
+     * Create a new Group
+     * @return static|Group
+     */
+    public function init(): Group
+    {
+        return new static;
+    }
 }

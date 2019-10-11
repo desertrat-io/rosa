@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.org/djzara/rosa.svg?branch=master)](https://travis-ci.org/djzara/rosa)
-
-How is our testing doing? [![Coverage Status](https://coveralls.io/repos/github/djzara/rosa/badge.svg?branch=master)](https://coveralls.io/github/djzara/rosa?branch=master)
-
-
+[![Coverage Status](https://coveralls.io/repos/github/djzara/rosa/badge.svg?branch=master)](https://coveralls.io/github/djzara/rosa?branch=master)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 # Rosa - The Cloud Framework for PHP
 
 Experiment in creating a framework. Rosa provides a system by which
