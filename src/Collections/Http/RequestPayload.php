@@ -79,22 +79,22 @@ class RequestPayload extends Group implements Payload
         // TODO: Implement getByKey() method.
     }
 
-    public function append($object)
+    public function append($object, $key = null): void
     {
         // TODO: Implement append() method.
     }
 
-    public function prepend($object)
+    public function prepend($object, $key = null): void
     {
         // TODO: Implement prepend() method.
     }
 
-    public function insertByIndex(int $index, int $shiftTo = 0)
+    public function insertByIndex(int $index, int $shiftTo = 0): void
     {
         // TODO: Implement insertByIndex() method.
     }
 
-    public function insertByKey(string $key, int $shiftTo = 0)
+    public function insertByKey(string $key, int $shiftTo = 0): void
     {
         // TODO: Implement insertByKey() method.
     }
@@ -114,7 +114,7 @@ class RequestPayload extends Group implements Payload
         // TODO: Implement reverse() method.
     }
 
-    public function setCap(int $num)
+    public function setCap(int $num): void
     {
         // TODO: Implement setCap() method.
     }

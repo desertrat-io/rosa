@@ -4,11 +4,11 @@
 namespace Rosa\Collections\Data;
 
 /**
- * Class Jsonable
+ * Class GroupNode
  * @package Rosa\Collections\Data
  * @codeCoverageIgnore
  */
-interface Jsonable
+interface GroupNode
 {
-    public function json(): ?string;
+
 }

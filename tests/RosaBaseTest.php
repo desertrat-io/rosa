@@ -3,6 +3,8 @@
 namespace RosaTest;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionException;
+use ReflectionClass;
 
 /**
  * Class RosaBaseTest

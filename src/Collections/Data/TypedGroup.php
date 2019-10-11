@@ -3,6 +3,8 @@
 
 namespace Rosa\Collections\Data;
 
+use Rosa\Interfaces\Exception\RosaException;
+
 /**
  * Class TypedGroup
  * @package Rosa\Collections\Data
@@ -82,6 +84,61 @@ abstract class TypedGroup extends Group
     public function unserialize($serialized)
     {
         // TODO: Implement unserialize() method.
+    }
+
+    public function getByIndex(int $index)
+    {
+        // TODO: Implement getByIndex() method.
+    }
+
+    public function getByKey(string $key)
+    {
+        // TODO: Implement getByKey() method.
+    }
+
+    public function append($object, $key = null): void
+    {
+        // TODO: Implement append() method.
+    }
+
+    public function prepend($object, $key = null): void
+    {
+        // TODO: Implement prepend() method.
+    }
+
+    public function insertByIndex(int $index, int $shiftTo = 0): void
+    {
+        // TODO: Implement insertByIndex() method.
+    }
+
+    public function insertByKey(string $key, int $shiftTo = 0): void
+    {
+        // TODO: Implement insertByKey() method.
+    }
+
+    public function map(callable $callback, ?string $groupClassType = null): Group
+    {
+        // TODO: Implement map() method.
+    }
+
+    public function shuffle(): Group
+    {
+        // TODO: Implement shuffle() method.
+    }
+
+    public function reverse(): Group
+    {
+        // TODO: Implement reverse() method.
+    }
+
+    public function setCap(int $num): void
+    {
+        // TODO: Implement setCap() method.
+    }
+
+    public function setSoftCap(int $num): bool
+    {
+        // TODO: Implement setSoftCap() method.
     }
 
 
