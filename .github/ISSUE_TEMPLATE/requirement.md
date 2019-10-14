@@ -2,19 +2,23 @@
 name: Requirement
 about: An approved requirement to be implemented
 title: "[REQ]"
-labels: ''
+labels: requirement
 assignees: djzara
 
 ---
 
-**What is the goal of this requirement**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+##**What makes this requirement necessary?**
 
-**Is there a plan of action already, if so what?**
-A clear and concise description of what you want to happen.
+- Will it add value?
 
-**Are any dependency updates required at this time, and will there be any side effects?**
-A clear and concise description of any alternative solutions or features you've considered.
+- What problem does it solve?
 
-**Is there a time estimate associated?**
-Add any other context or screenshots about the feature request here.
+##**What is needed to implement this requirement?**
+
+- Will it require additional resources beyond the core system? (cloud, assets, etc)
+
+- Are extra contributors needed?
+
+- Are upgrades to exist packages and such needed?
+
+##**Please go in to more detail regarding your vision for this requirement**
