@@ -122,12 +122,12 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
 
     /**
      * Sets the default exception handler for a group object should client code need to customize this
-     * @param RosaException $exceptionHandler
+     * @param string $exceptionHandlerClass
      * @param mixed ...$arguments
      */
-    public function setDefaultExceptionHandler(RosaException $exceptionHandler, ...$arguments): void
+    public function setDefaultExceptionHandler(string $exceptionHandlerClass, ...$arguments): void
     {
-        $this->exceptionHandler = $exceptionHandler;
+        $this->exceptionHandler = $exceptionHandlerClass;
         $this->exceptionHandlerArguments = $arguments;
     }
 
@@ -217,7 +217,7 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
     {
         if ($key !== null && (!is_string($key) && !is_numeric($key))) {
             if ($this->exceptionHandler !== null) {
-                throw new $this->exceptionHandler($this->exceptionHandlerArguments);
+                throw new $this->exceptionHandler(...$this->exceptionHandlerArguments);
             }
             throw new RuntimeException('Invalid Key');
         }
