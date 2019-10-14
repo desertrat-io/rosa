@@ -344,6 +344,9 @@ class GroupTest extends RosaTestCase
     }
 
 
+    /**
+     * @throws RosaException
+     */
     public function testKeyExceptionNoDefaultHandler(): void
     {
         $this->expectException(RuntimeException::class);
