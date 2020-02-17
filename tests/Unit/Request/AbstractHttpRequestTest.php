@@ -17,18 +17,15 @@ use RosaTest\Unit\RosaTestCase;
 class AbstractHttpRequestTest extends RosaTestCase
 {
 
-    /**
-     * @var ReflectionClass
-     */
-    protected $httpRequestRef;
+    protected ReflectionClass $httpRequestRef;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
         $this->httpRequestRef = new ReflectionClass(AbstractHttpRequest::class);
     }
 
-    public function testIsARequest() : void
+    public function testIsARequest(): void
     {
         $this->assertTrue($this->httpRequestRef->implementsInterface(Request::class));
     }

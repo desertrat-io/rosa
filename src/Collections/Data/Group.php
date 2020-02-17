@@ -11,6 +11,7 @@ use Serializable;
 use Countable;
 use stdClass;
 use RuntimeException;
+use Error;
 
 /**
  * The Group class is the highest level class in the tree of objects that represents collections of objects
@@ -48,32 +49,32 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
      * For the most basic kinds of groups, a native array is sufficient
      * @var array
      */
-    protected $collection = [];
+    protected array $collection = [];
 
     /**
-     * @var RosaException
+     * @var string
      */
-    protected $exceptionHandler;
+    protected string $exceptionHandler;
 
     /**
      * @var array
      */
-    protected $exceptionHandlerArguments = [];
+    protected array $exceptionHandlerArguments = [];
 
     /**
      * @var GroupNode
      */
-    protected $groupNode;
+    protected GroupNode $groupNode;
 
     /**
      * @var int
      */
-    protected $cap = 0;
+    protected int $cap = 0;
 
     /**
      * @var int
      */
-    protected $softCap = 0;
+    protected int $softCap = 0;
 
     /**
      * For native array
@@ -81,7 +82,7 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
      */
     public function count(): ?int
     {
-        if ($this->collection instanceof Countable || is_array($this->collection)) {
+        if ($this->collection instanceof Countable || is_countable($this->collection)) {
             return count($this->collection);
         }
         return null;
@@ -114,7 +115,7 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
         if (is_array($this->collection) ||
             ($this->collection instanceof ArrayAccess &&
                 $this->collection instanceof Countable)) {
-            return json_encode($this->collection);
+            return json_encode($this->collection, JSON_THROW_ON_ERROR, 512);
         }
 
         return null;
@@ -210,8 +211,8 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
     /**
      * Just a simple way to make sure any group key is valid, mainly for internal use
      * @param $key
-     * @throws RosaException
      * @throws RuntimeException
+     * @throws Error
      */
     protected function checkKey($key): void
     {

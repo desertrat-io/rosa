@@ -65,7 +65,7 @@ done better, or maybe something that isn't even being thought of, go ahead and o
 a bit. Tell me my idea is stupid, and I'll try to prove to you why it's not. That ends up working nicely for both of us :)
 
 
-[Mike Lawson](mailto:mlawson1986@gmail.com)
+[Mike Lawson](mailto:mike@desertrat.io)
 
 
 NOTE: During initial development, many classes will contain stubs as work to implement actual
