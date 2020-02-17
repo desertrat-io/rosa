@@ -10,6 +10,7 @@ use ReflectionException;
 use ReflectionClass;
 use stdClass;
 use RuntimeException;
+use Error;
 
 /**
  * Class GroupTest
@@ -349,7 +350,7 @@ class GroupTest extends RosaTestCase
      */
     public function testKeyExceptionNoDefaultHandler(): void
     {
-        $this->expectException(RuntimeException::class);
+        $this->expectException(Error::class);
         $this->group->append(null, false);
         $this->group->append(null, true);
         $this->group->append(null, []);

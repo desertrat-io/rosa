@@ -12,20 +12,11 @@ namespace Rosa\Subsystem\Data\Bus;
 class DataSymbol
 {
 
-    /**
-     * @var string
-     */
-    private $originalKey;
+    private string $originalKey;
 
-    /**
-     * @var string
-     */
-    private $suffixSeparator;
+    private string $suffixSeparator;
 
-    /**
-     * @var string|null
-     */
-    private $currentSymbol = null;
+    private ?string $currentSymbol = null;
 
     /**
      * DataSymbol constructor.
@@ -46,7 +37,7 @@ class DataSymbol
     {
         $this->originalKey = $key;
     }
-    
+
     /**
      * @param  string  $suffixSeparator
      */
