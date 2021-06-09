@@ -16,4 +16,6 @@ interface ExceptionActions
      */
 
     public const ROSA_GENERIC_ACT = 0x000001; //generic and/or unknown
+
+    public const ROSA_COLLECTION_ACT = 0x000002; // the exception occurred during an operation on a collection
 }

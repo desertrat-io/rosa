@@ -95,7 +95,7 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
      */
     public function toGenericObject(): stdClass
     {
-        return (object) $this->collection;
+        return (object)$this->collection;
     }
 
     public function destroy(): void
@@ -123,8 +123,8 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
 
     /**
      * Sets the default exception handler for a group object should client code need to customize this
-     * @param string $exceptionHandlerClass
-     * @param mixed ...$arguments
+     * @param  string  $exceptionHandlerClass
+     * @param  mixed  ...$arguments
      */
     public function setDefaultExceptionHandler(string $exceptionHandlerClass, ...$arguments): void
     {
@@ -137,30 +137,24 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
      * Negative indexes return items in reverse
      * $myGroup->getByIndex(0) returns the first object in the group
      * $myGroup->getByIndex(-1) returns the last object in the group
-     * @param int $index
+     * @param  int  $index
      * @return mixed
      */
-    public function getByIndex(int $index)
+    public function getByIndex(int $index): mixed
     {
-        if (isset($this->collection[$index])) {
-            return $this->collection[$index];
-        }
-        return null;
+        return $this->collection[$index] ?? null;
     }
 
     /**
      * Retrieve an item from the group by associated string key, similar to a native
      * associative array or hash.
      * $myGroup->getByKey('foo') returns the object with key foo (duh)
-     * @param string $key
+     * @param  string  $key
      * @return mixed
      */
-    public function getByKey(string $key)
+    public function getByKey(string $key): mixed
     {
-        if (isset($this->collection[$key])) {
-            return $this->collection[$key];
-        }
-        return null;
+        return $this->collection[$key] ?? null;
     }
 
     /**
@@ -188,7 +182,6 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
      * @param $object
      * @param $key
      * @throws RuntimeException
-     * @throws RosaException
      */
     public function prepend($object, $key = null): void
     {
@@ -201,7 +194,7 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
                 // make a spot
                 $tmpCollection = array_merge([$key => $object], $this->collection);
             } else {
-                $tmpCollection = array_pad($this->collection, -(count(($this->collection))+1), $object);
+                $tmpCollection = array_pad($this->collection, -(count(($this->collection)) + 1), $object);
             }
 
             $this->collection = $tmpCollection; // keep the original collection from being touched until finished
@@ -230,15 +223,15 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
      * the same as prepend or append
      * When an insert happens, the second parameter can be used
      * to define what direction relative to the inserted item should be shifted
-     * @param int $index
-     * @param int $shiftTo
+     * @param  int  $index
+     * @param  int  $shiftTo
      */
     abstract public function insertByIndex(int $index, int $shiftTo = 0): void;
 
     /**
-     * Works the same as @see insertByIndex however it does so by string key
-     * @param string $key
-     * @param int $shiftTo
+     * Works the same as @param  string  $key
+     * @param  int  $shiftTo
+     * @see insertByIndex however it does so by string key
      */
     abstract public function insertByKey(string $key, int $shiftTo = 0): void;
 
@@ -246,8 +239,8 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
      * Performs a map action on the Group using the specific callback
      * If the second parameter is given, the returns map is of that type
      * Useful for converting between two group types
-     * @param callable $callback
-     * @param string|null $groupClassType
+     * @param  callable  $callback
+     * @param  string|null  $groupClassType
      * @return Group
      */
     abstract public function map(callable $callback, ?string $groupClassType = null): Group;
@@ -267,7 +260,7 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
     /**
      * Set a limit on how many objects can be stored in a group
      * Throws an exception if violated
-     * @param int $num
+     * @param  int  $num
      * @throws RosaException
      */
     abstract public function setCap(int $num): void;
@@ -275,17 +268,17 @@ abstract class Group implements Iterates, ArrayAccess, Serializable, Countable, 
     /**
      * Set a limit on how many objects can be stored in a group
      * Returns false if the cap is hit, but no exception is thrown
-     * @param int $num
+     * @param  int  $num
      * @return bool
      */
     abstract public function setSoftCap(int $num): bool;
 
     /**
      * Create a new Group
-     * @return static|Group
+     * @return static
      */
-    public function init(): Group
+    public function init(): static
     {
-        return new static;
+        return new static();
     }
 }

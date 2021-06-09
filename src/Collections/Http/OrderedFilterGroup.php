@@ -7,6 +7,7 @@ use Closure;
 use Rosa\Collections\Data\Group;
 use Rosa\Collections\Data\TypedGroup;
 use Rosa\Collections\Structures\OrderedGroup;
+use Rosa\Exceptions\Core\RosaInvalidTypeException;
 use Rosa\Interfaces\Exception\RosaException;
 use Rosa\Interfaces\Filter\Filter;
 
@@ -82,4 +83,8 @@ class OrderedFilterGroup extends TypedGroup implements OrderedGroup
         // TODO: Implement getParameterizedType() method.
     }
 
+    protected function checkType($valueToCheck)
+    {
+        // TODO: Implement checkType() method.
+    }
 }

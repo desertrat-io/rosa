@@ -49,7 +49,7 @@ interface StorableLocator
     public function setLocation(string $location): void;
 
     /**
-     * Bind a Storable to the locator instance for tracking
+     * ContextBind a Storable to the locator instance for tracking
      * @param  Storable  $storable
      */
     public function referenceStorable(Storable $storable): void;

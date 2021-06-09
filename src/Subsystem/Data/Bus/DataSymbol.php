@@ -23,7 +23,7 @@ class DataSymbol
      * @param  string  $key
      * @param  string  $suffixSeparator
      */
-    public function __construct(string $key, $suffixSeparator = '_')
+    public function __construct(string $key, string $suffixSeparator = '_')
     {
         $this->setKeyBase($key);
         $this->setKeySuffix($suffixSeparator);

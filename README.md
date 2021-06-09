@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/djzara/rosa.svg?branch=master)](https://travis-ci.org/djzara/rosa)
-[![Coverage Status](https://coveralls.io/repos/github/djzara/rosa/badge.svg?branch=master)](https://coveralls.io/github/djzara/rosa?branch=master)
+[![Build Status](https://travis-ci.com/desertrat-io/rosa.svg?branch=master)](https://travis-ci.com/desertrat-io/rosa)
+[![Coverage Status](https://coveralls.io/repos/github/djzara/rosa/badge.svg?branch=master)](https://coveralls.io/github/desertrat-io/rosa?branch=master)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 # Rosa - The Cloud Framework for PHP
 
@@ -26,10 +26,8 @@ the loose coupling we need to have a truly efficient, resilient, reusable, and m
 # Why PHP?
 
 I could have picked from a zillion other languages that may even be better suited to this kind of behavior, so why
-the ever present elephant in the room? (get it?) Because PHP is also not what it was 10 years ago. What used to be
-the North End's worth of spaghetti in code in near consistent fashion has evolved significantly.
-
-(PS: If you don't know what the North End is, go to Boston sometime. Eat your heart out NYC!)
+the ever present elephant in the room? (get it?) Because PHP is also not what it was 10 years ago. Might as well have
+a new name now.
 
 We have the ability to type check parameters and return types, or we can choose not to. I think that's a very powerful
 feature to have in today's world where type safety is so important. The interpreter is lightning fast compared to what it
@@ -37,11 +35,13 @@ was. The community is always growing thanks to PHPs low barrier to entry. Howeve
 you learning for years and years, making the most out of this language. PHP today is a ghost of what it was a decade ago.
 It's nothing alike. Pre-runtime detection of errors, maybe some parameterized types soon? ehhhhh?
 
+Or maybe true type inference like Scala and Go....
+
 # So what cloud services do you support?
 
 Out of the box, well that's to be determined as development moves ahead. Additionally...what is a cloud service in the
 first place? Doesn't that have to be defined? Well, let's go with the common assumption that the cloud is just someone
-else's computer out there in the ether that does something we want it to do. We'll go with that. Descriptive? Nah, 
+else's computer out there in the aether that does something we want it to do. We'll go with that. Descriptive? Nah, 
 probably not enough, but that's the point. With a vague meaning comes a more clear idea as to what the purpose is of Rosa.
 Yes, it'll support many common platforms right out of the box, but that should never be limited. With this framework
 I'll be trying hard to keep in mind the future, as future proofing is the name of the game!
@@ -56,7 +56,8 @@ Don't worry, that's coming too
 
 # Aren't you tired of MVC?
 
-Who said this was only MVC? You can use it like that if you choose, but once my plans are in place...
+Rosa provides an MVC platform to develop on, but you are by no means restricted to it. Certain things are easier,
+like tapping in to the DI features, but you're not required to. Use what makes the most sense for your requirements.s
 
 ### Other stuff
 
@@ -66,7 +67,3 @@ a bit. Tell me my idea is stupid, and I'll try to prove to you why it's not. Tha
 
 
 [Mike Lawson](mailto:mike@desertrat.io)
-
-
-NOTE: During initial development, many classes will contain stubs as work to implement actual
-requirements is done

@@ -3,6 +3,7 @@
 
 namespace Rosa\Collections\Data;
 
+use Rosa\Exceptions\Core\RosaInvalidTypeException;
 use Rosa\Interfaces\Exception\RosaException;
 
 /**
@@ -13,13 +14,25 @@ use Rosa\Interfaces\Exception\RosaException;
 abstract class TypedGroup extends Group
 {
     /**
-     * @var null
+     * @var string
      */
-    protected $typeName;
+    protected static string $typeName;
 
     abstract protected function getParameterizedType();
 
-    public function getTypeName() : string
+    /**
+     * @param $valueToCheck
+     * @return mixed
+     * @throws RosaInvalidTypeException
+     */
+    abstract protected function checkType($valueToCheck);
+
+    protected function getTypeErrorMsg(string $givenType): string
+    {
+        return sprintf('Group of type %s cannot accept type %s', static::$typeName, $givenType);
+    }
+
+    public function getTypeName(): string
     {
         return static::$typeName;
     }
@@ -28,7 +41,7 @@ abstract class TypedGroup extends Group
     public function getNewGroup()
     {
         $newTypeClass = static::getParameterizedType();
-        return new $newTypeClass;
+        return new $newTypeClass();
     }
 
     public function current()
@@ -91,19 +104,31 @@ abstract class TypedGroup extends Group
         // TODO: Implement getByIndex() method.
     }
 
+    /**
+     * @param  string  $key
+     * @return static::getTypeName()
+     */
     public function getByKey(string $key)
     {
-        // TODO: Implement getByKey() method.
+        return parent::getByKey($key);
     }
 
+    /**
+     * @param $object
+     * @param  null  $key
+     * @throws RosaInvalidTypeException
+     * @throws RosaException
+     */
     public function append($object, $key = null): void
     {
-        // TODO: Implement append() method.
+        static::checkType($object);
+        parent::append($object, $key);
     }
 
     public function prepend($object, $key = null): void
     {
-        // TODO: Implement prepend() method.
+        static::checkType($object);
+        parent::prepend($object, $key);
     }
 
     public function insertByIndex(int $index, int $shiftTo = 0): void

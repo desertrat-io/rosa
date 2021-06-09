@@ -1,9 +1,10 @@
 <?php
 
 
-namespace Rosa\Collections\Data;
+namespace Rosa\Collections\Data\TypedGroups;
 
-use Rosa\Interfaces\Exception\RosaException;
+use Rosa\Collections\Data\TypedGroup;
+use Rosa\Exceptions\Core\RosaInvalidTypeException;
 
 /**
  * Class StringGroup
@@ -12,10 +13,17 @@ use Rosa\Interfaces\Exception\RosaException;
  */
 class StringGroup extends TypedGroup
 {
+
+    protected static string $typeName = 'string';
+
     protected function getParameterizedType()
     {
-        // TODO: Implement getParameterizedType() method.
     }
 
-
+    protected function checkType($valueToCheck)
+    {
+        if (!is_string($valueToCheck)) {
+            throw new RosaInvalidTypeException($this->getTypeErrorMsg(gettype($valueToCheck)));
+        }
+    }
 }
